@@ -1,4 +1,4 @@
-{
+/* {
     "name": "Conda Environment",
     "build": {
         "dockerfile": "Dockerfile"
@@ -13,6 +13,41 @@
     ],
     "remoteUser": "vscode",
     "mounts": [
-        "source=${localWorkspaceFolder}/environment.yml,target=/workspace/environment.yml,type=bind"
+        //"source=${localWorkspaceFolder}/environment.yml,target=/workspace/environment.yml,type=bind"
     ]
+}
+ */
+
+ {
+ "name": "Jupyter Data Science Devcontainer",
+ "build": {
+     "dockerfile": "../Dockerfile"
+ },
+ "customizations": {
+     "vscode": {
+         "extensions": [
+             "ms-python.python",  // Python support
+             "ms-toolsai.jupyter" // Jupyter notebooks
+         ]
+     }
+ },
+ "settings": {
+     "python.pythonPath": "/usr/local/bin/python"
+ },
+ "postCreateCommand": "jupyter notebook --generate-config && echo \"c.NotebookApp.token = ''\" >> ~/.jupyter/jupyter_notebook_config.py",
+ "forwardPorts": [8888],
+ "portsAttributes": {
+     "8888": {
+         "label": "Jupyter Notebook"
+     }
+ },
+ "remoteEnv": {
+     "JUPYTER_ENABLE_LAB": "yes"
+ },
+ "mounts": [
+     "source=${localWorkspaceFolder},target=/opt/notebooks,type=bind"
+ ],
+ "runArgs": [
+     "--shm-size=1gb"
+ ]
 }
