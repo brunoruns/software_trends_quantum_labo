@@ -40,7 +40,7 @@
 
 FROM python:3.11-slim
 
-WORKDIR /opt/notebooks
+WORKDIR /workspace
 
 RUN pip install --no-cache-dir \
     jupyter \
@@ -51,8 +51,4 @@ RUN pip install --no-cache-dir \
     qiskit-aer \
     pylatexenc
 
-RUN mkdir -p /opt/notebooks
-
 EXPOSE 8888
-
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
