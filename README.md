@@ -10,3 +10,6 @@ In deze virtuele omgeving kun je nu de notebooks gebruiken
 
 # Devcontainer
 Als deze repo in ingeladen als devcontainer, kan je gewoon in de python notebooks (.ipynb) de code runnen zonder verdere installatie.
+
+# Voorbeeldcode 
+Voorbeeldcode die het snelt aan de praat te krijgen is bevindt zich in de map 'notebooks platform'. Oefeningen vind je in een aparte notebook in het mapje oefeningen.
