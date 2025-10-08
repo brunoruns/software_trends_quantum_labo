@@ -5,16 +5,17 @@
     },
     "customizations": {
         "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python3"
+            },
             "extensions": [
-                "ms-python.python", 
-                "ms-toolsai.jupyter"
+                "ms-python.python@2024.22.2",
+                "ms-toolsai.jupyter@2024.11.0"
             ]
         }
     },
-    "settings": {
-        "python.pythonPath": "/usr/local/bin/python"
-    },
+    
     "forwardPorts": [8888],
-    "postCreateCommand": "python -m pip install --upgrade pip",
+    "postCreateCommand": "python3 -m pip install --upgrade pip && python3 -m ipykernel install --user --name python3 --display-name 'Python 3'",
     "remoteUser": "root" 
 }
